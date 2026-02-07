@@ -11,7 +11,7 @@ public class ParkingFloor {
     this.id=id;
   }
 
-  public void OccupySpot(ParkingSpot spot) {
+  public void addSpot(ParkingSpot spot) {
   spots.put(spot.getId(),spot);
   }
 
