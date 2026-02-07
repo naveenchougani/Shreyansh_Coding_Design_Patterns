@@ -8,5 +8,9 @@ public class EntryGate extends Gate {
   public GateType getType() {
     return GateType.ENTRY;
   }
+
+  public Ticket parkVehicle(Vehicle vehicle, LocalDateTime entryTime){
+    return ParkingLot.getInstance().parkVehicle(vehicle,entryTime);    
+  }
   
 }
