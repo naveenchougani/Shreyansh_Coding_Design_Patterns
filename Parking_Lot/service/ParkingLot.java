@@ -18,7 +18,7 @@ public class ParkingLot {
   }
 
   public void addFloor(ParkingFloor floor) { // is a class with an id and map of parkingspots
-    floors.put(floot.getId(),floor);
+    floors.put(floor.getId(),floor);
   }
 
   public Ticket parkVehicle(Vehicle vehicle, LocalDateTime entryTime) {
@@ -29,7 +29,7 @@ public class ParkingLot {
       // if spots are available, you will return an instance and Ticket will be provied
       if(spot !=null){
         String ticketId = UUID.randomUUID().toString();
-        Ticket ticket = ticket.builder()
+        Ticket ticket = Ticket.builder()
                         .ticketId(ticketId)
                         .entryTime(entryTime)
                         .vehicle(vehicle)
@@ -85,11 +85,11 @@ public class ParkingLot {
   }    
 
   public void printStatus() {
-    floors.forEach(floorId,floor) -> {
-      System.out.println("Floor: "+floorId);
-      floor.getSpots().values().forEach(spot - > {
-        System.out.println(" Spot " + spot.getId() + " [" + spot.getAllowedType() + "] - " + (spot.isOccupied() ? "Occupied" : "Free"));
-            });
+    floors.forEach( (floorId,floor) -> {
+        System.out.println("Floor: "+floorId);
+        floor.getSpots().values().forEach( spot -> {
+          System.out.println(" Spot " + spot.getId() + " [" + spot.getAllowedType() + "] - " + (spot.isOccupied() ? "Occupied" : "Free"));
+          });
       });
     }   
 }
